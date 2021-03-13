@@ -7,11 +7,9 @@ public class Test_3 {
 
 	public static void main(String[] args) {
 		
-		//System.out.println(fibonacci(4));
+
 		int[] myNum = {5,1,4,6,3,7,1};
-		//System.out.println(solution("aaaabbbb"));
-		//System.out.println(solution("ccaaffddecee"));
-		//System.out.println(solution("eeee"));
+
 		System.out.println(solution(myNum));
 	}
 //https://stackoverflow.com/questions/35209524/finding-two-non-subsequent-elements-in-array-which-sum-is-minimal
