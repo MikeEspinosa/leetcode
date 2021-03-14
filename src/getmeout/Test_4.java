@@ -137,7 +137,9 @@ public class Test_4 {
     	
     }
     
-    
+    // Internet solutions:
+    // https://algorithms.tutorialhorizon.com/minimum-deletions-to-make-the-occurrence-of-each-character-unique/
+    // https://www.geeksforgeeks.org/minimum-characters-required-to-be-removed-to-make-frequency-of-each-character-unique/
     
 	 // Function to find the minimum count of characters required to be deleted to make frequencies of all characters unique
 	 public static int minCntCharDeletionsfrequency(String S) {
