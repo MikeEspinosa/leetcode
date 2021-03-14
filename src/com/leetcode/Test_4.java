@@ -1,4 +1,4 @@
-package getmeout;
+package com.leetcode;
 
 import java.util.ArrayList;
 import java.util.Arrays;

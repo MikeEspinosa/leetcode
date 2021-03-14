@@ -1,4 +1,4 @@
-package getmeout;
+package com.leetcode;
 
 public class Test_1 {
 
