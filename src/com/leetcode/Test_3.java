@@ -73,42 +73,41 @@ public class Test_3 {
     
     public static int solution2(int[] a) {
     	
-    	Integer[] mins = new Integer[4];
+    	Integer[] indexSmallestNum = new Integer[4];
     	
     	// collect the 4 smallest values by their indexes 
     	for (int i = 0; i < a.length; i++) {		
     		for (int j = 3; j >= 0; j--) {
-    			if (mins[j] == null ||  a[i] < a[mins[j]]) {
+    			if (indexSmallestNum[j] == null ||  a[i] < a[indexSmallestNum[j]]) {
 				
     				if (j < 3) {
-    					Integer shiftIndex = mins[j];
-    					mins[j + 1] = shiftIndex;
+    					Integer shiftIndex = indexSmallestNum[j];
+    					indexSmallestNum[j + 1] = shiftIndex;
     				}
     			    
-    				mins[j] = i;
+    				indexSmallestNum[j] = i;
     			}
     		}
     	}
     	    	
     	// get the biggest result for comparison. 
     	// the last min in the array is probably the biggest number. So we multiply it by 2 and add 1 (to be sure)
-    	// note we can also do integer.max
-    	int result= a[mins[mins.length - 1]]*2+1;
+    	int answer= Integer.MAX_VALUE;
     	
     	// iterate through the 4 length array to see which non adjacent combination is the largest
-        for (int j = 0; j < mins.length; j++) { // O(1)
-            for (int k = j + 1; k < mins.length; k++) {
-                if (Math.abs(mins[j] - mins[k]) > 1) { // not adjacent
-                    if (result    > a[mins[j]]+a[mins[k]]) {
-                        result    = a[mins[j]]+a[mins[k]];
+        for (int j = 0; j < indexSmallestNum.length; j++) { // O(1)
+            for (int k = j + 1; k < indexSmallestNum.length; k++) {
+                if (Math.abs(indexSmallestNum[j] - indexSmallestNum[k]) > 1) { // not adjacent
+                    if (answer    > a[indexSmallestNum[j]]+a[indexSmallestNum[k]]) {
+                        answer    = a[indexSmallestNum[j]]+a[indexSmallestNum[k]];
                     };
-                    if (k < j + 3) return result; // cannot be improved
-                    break; // exit inner loop: it cannot bring improvement
+                   // if (k < j + 3) return result; // cannot be improved
+                   // break; // exit inner loop: it cannot bring improvement
                 }
             }
         }	
 	
-    	return result;
+    	return answer;
     	
     }
     
