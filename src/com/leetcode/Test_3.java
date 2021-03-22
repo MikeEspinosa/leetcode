@@ -1,8 +1,10 @@
 package com.leetcode;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Test_3 {
 
@@ -58,16 +60,25 @@ public class Test_3 {
     		}    		
     	}
     	
+        List<Integer> list = combination
+                .entrySet()
+                .stream()
+                .map(m -> m.getValue())
+                .collect(Collectors.toList());
+
+        Collections.sort(list);
+
     	// once all possible combinations are there, get the lowest sum of all those combination
-       	for (Map.Entry<String, Integer> entry : combination.entrySet()) {
-       		
-       		int value =  entry.getValue();
-       		if (answer > value || answer == 0) {
-       			answer = value;
-       		}
-       		
-       	}
+        /*
+         * for (Map.Entry<String, Integer> entry : combination.entrySet()) {
+         * 
+         * int value = entry.getValue(); if (answer > value || answer == 0) {
+         * answer = value; }
+         * 
+         * }
+         */
     	
+        answer = list.get(0);
        	return answer;
     }
     
